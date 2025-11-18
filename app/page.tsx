@@ -1,65 +1,152 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+import { Button } from 'antd';
+import { AiOutlineGlobal, AiOutlinePhone, AiOutlineSearch } from 'react-icons/ai';
+import { HiOutlineBriefcase } from 'react-icons/hi';
+import { FaHandshake, FaNetworkWired, FaCheckCircle, FaShippingFast } from 'react-icons/fa';
+import Image from 'next/image';
+
+export default function HomePage() {
+	return (
+		<main className='w-full min-h-screen bg-white text-gray-800'>
+			{/* ================= HERO SECTION ================= */}
+			<section className='relative w-full h-[80vh] flex flex-col items-center justify-center text-white text-center overflow-hidden'>
+				{/* Background Image */}
+				<div className='absolute inset-0 z-0'>
+					<Image src='/assets/top-globe.jpg' alt='hero sales' fill className='object-cover' priority />
+				</div>
+
+				{/* Optional overlay */}
+				<div className='absolute inset-0 bg-black/40 -z-10'></div>
+
+				{/* Hero Content */}
+				<div className='relative z-10 pt-20 flex flex-col gap-10'>
+					<h1 className='text-4xl md:text-6xl font-bold mb-6'>
+						<strong className='text-7xl'>Connecting Businesses. </strong>
+						<br />{' '}
+						<span
+							className='text-teal-600
+            '
+						>
+							Creating Global Opportunities.
+						</span>
+					</h1>
+					<p
+						className='
+    max-w-2xl mx-auto text-lg md:text-xl mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.3)]'
+					>
+						We link companies around the world with trusted clients, suppliers, partners, and new markets — your gateway to global expansion.
+					</p>
+
+					<div className='flex gap-4 justify-center'>
+						<Button size='large' type='primary'>
+							Get Started
+						</Button>
+						<Button size='large'>Book a Consultation</Button>
+					</div>
+				</div>
+			</section>
+
+			{/* ================= ABOUT ================= */}
+			<section className='py-20 px-6 max-w-6xl mx-auto text-center'>
+				<h2 className='text-3xl font-bold mb-6'>About Us</h2>
+				<p className='text-gray-600 max-w-3xl mx-auto text-lg'>
+					We specialize in connecting businesses globally — suppliers, clients, distributors, and investors. Whether you’re expanding, sourcing products, or
+					opening new sales channels, we make international growth simple and efficient.
+				</p>
+
+				<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16'>
+					<div className='flex flex-col items-center'>
+						<FaHandshake size={40} className='text-blue-600' />
+						<h3 className='text-xl font-semibold mt-4'>International Matchmaking</h3>
+						<p className='text-gray-600 mt-2'>We connect you with the right partners, clients, and suppliers.</p>
+					</div>
+
+					<div className='flex flex-col items-center'>
+						<HiOutlineBriefcase size={40} className='text-blue-600' />
+						<h3 className='text-xl font-semibold mt-4'>Global Sales Representation</h3>
+						<p className='text-gray-600 mt-2'>We promote your products and open new markets worldwide.</p>
+					</div>
+
+					<div className='flex flex-col items-center'>
+						<FaNetworkWired size={40} className='text-blue-600' />
+						<h3 className='text-xl font-semibold mt-4'>Supplier & Manufacturer Sourcing</h3>
+						<p className='text-gray-600 mt-2'>We find reliable suppliers with the best pricing & quality.</p>
+					</div>
+				</div>
+			</section>
+
+			{/* ================= SERVICES ================= */}
+			<section className='py-20 bg-gray-100 px-6'>
+				<h2 className='text-center text-3xl font-bold mb-12'>Our Services</h2>
+
+				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+					{[
+						{
+							icon: <AiOutlineSearch size={35} className='text-blue-600' />,
+							title: 'Global Business Matchmaking',
+							desc: 'We identify and connect you with ideal partners worldwide.',
+						},
+						{
+							icon: <FaShippingFast size={35} className='text-blue-600' />,
+							title: 'Import / Export Support',
+							desc: 'Documentation, logistics, and sourcing assistance.',
+						},
+						{
+							icon: <HiOutlineBriefcase size={35} className='text-blue-600' />,
+							title: 'Sales Representation',
+							desc: 'We represent your brand and products in global markets.',
+						},
+						{
+							icon: <AiOutlineGlobal size={35} className='text-blue-600' />,
+							title: 'Market Expansion',
+							desc: 'Enter new markets with confidence and verified contacts.',
+						},
+						{
+							icon: <FaNetworkWired size={35} className='text-blue-600' />,
+							title: 'B2B Network Building',
+							desc: 'Grow your international network of clients and suppliers.',
+						},
+						{
+							icon: <FaCheckCircle size={35} className='text-blue-600' />,
+							title: 'Quality Verification',
+							desc: 'We ensure suppliers and partners meet your standards.',
+						},
+					].map((s, i) => (
+						<div key={i} className='bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition'>
+							<div className='flex items-center gap-3 mb-4'>
+								{s.icon}
+								<h3 className='text-xl font-semibold'>{s.title}</h3>
+							</div>
+							<p className='text-gray-600'>{s.desc}</p>
+						</div>
+					))}
+				</div>
+			</section>
+
+			{/* ================= CONTACT ================= */}
+			<section className='py-20 px-6 max-w-4xl mx-auto text-center'>
+				<h2 className='text-3xl font-bold mb-6'>Get In Touch</h2>
+				<p className='text-gray-600 text-lg mb-10'>Let’s discuss how we can help your business grow internationally.</p>
+
+				<div className='flex flex-col gap-6 text-lg'>
+					<p className='flex items-center gap-2 justify-center'>
+						<AiOutlinePhone /> <strong>Phone:</strong> +XX XXX XXX XXX
+					</p>
+					<p className='flex items-center gap-2 justify-center'>
+						<AiOutlineGlobal /> <strong>Email:</strong> info@yourcompany.com
+					</p>
+
+					<Button type='primary' size='large'>
+						Contact Us
+					</Button>
+				</div>
+			</section>
+
+			{/* ================= FOOTER ================= */}
+			<footer className='bg-gray-900 text-gray-300 py-8 text-center text-sm'>
+				<p>© {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+			</footer>
+		</main>
+	);
 }
