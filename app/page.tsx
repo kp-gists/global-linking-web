@@ -5,12 +5,14 @@ import { AiOutlineGlobal, AiOutlinePhone, AiOutlineSearch } from 'react-icons/ai
 import { HiOutlineBriefcase } from 'react-icons/hi';
 import { FaHandshake, FaNetworkWired, FaCheckCircle, FaShippingFast } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
+import { contact } from '@/utils/constants/company';
 
 export default function HomePage() {
 	return (
 		<main className='w-full min-h-screen bg-white text-gray-800'>
 			{/* ================= HERO SECTION ================= */}
-			<section className='relative w-full h-[80vh] flex flex-col items-center justify-center text-white text-center overflow-hidden'>
+			<section className='relative w-full h-[60vh] md:h-[80vh] flex flex-col items-center justify-start md:justify-center text-white text-center overflow-hidden'>
 				{/* Background Image */}
 				<div className='absolute inset-0 z-0'>
 					<Image src='/assets/top-globe.jpg' alt='hero sales' fill className='object-cover' priority />
@@ -20,12 +22,12 @@ export default function HomePage() {
 				<div className='absolute inset-0 bg-black/40 -z-10'></div>
 
 				{/* Hero Content */}
-				<div className='relative z-10 pt-20 flex flex-col gap-10'>
-					<h1 className='text-4xl md:text-6xl font-bold mb-6'>
-						<strong className='text-7xl'>Connecting Businesses. </strong>
+				<div className='relative z-10 pt-10 md:pt-10 flex flex-col gap-10'>
+					<h1 className='text-2xl md:text-6xl font-bold mb-6'>
+						<strong className='text-5xl md:text-7xl'>Connecting Businesses. </strong>
 						<br />{' '}
 						<span
-							className='text-teal-600
+							className='text-teal-600 mt-2 text-4xl text-center hidden md:block
             '
 						>
 							Creating Global Opportunities.
@@ -33,22 +35,15 @@ export default function HomePage() {
 					</h1>
 					<p
 						className='
-    max-w-2xl mx-auto text-lg md:text-xl mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.3)]'
+    max-w-2xl md:mx-auto text-lg md:text-xl mb-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-4 shadow-[0_8px_30px_rgb(0,0,0,0.3)] mx-4'
 					>
 						We link companies around the world with trusted clients, suppliers, partners, and new markets — your gateway to global expansion.
 					</p>
-
-					<div className='flex gap-4 justify-center'>
-						<Button size='large' type='primary'>
-							Get Started
-						</Button>
-						<Button size='large'>Book a Consultation</Button>
-					</div>
 				</div>
 			</section>
 
 			{/* ================= ABOUT ================= */}
-			<section className='py-20 px-6 max-w-6xl mx-auto text-center'>
+			<section id='about-us' className='py-20 px-6 max-w-6xl mx-auto text-center'>
 				<h2 className='text-3xl font-bold mb-6'>About Us</h2>
 				<p className='text-gray-600 max-w-3xl mx-auto text-lg'>
 					We specialize in connecting businesses globally — suppliers, clients, distributors, and investors. Whether you’re expanding, sourcing products, or
@@ -77,7 +72,7 @@ export default function HomePage() {
 			</section>
 
 			{/* ================= SERVICES ================= */}
-			<section className='py-20 bg-gray-100 px-6'>
+			<section id='services' className='py-20 bg-gray-100 px-6'>
 				<h2 className='text-center text-3xl font-bold mb-12'>Our Services</h2>
 
 				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
@@ -125,17 +120,17 @@ export default function HomePage() {
 			</section>
 
 			{/* ================= CONTACT ================= */}
-			<section className='py-20 px-6 max-w-4xl mx-auto text-center'>
+			<section id='contact' className='py-20 px-6 max-w-4xl mx-auto text-center'>
 				<h2 className='text-3xl font-bold mb-6'>Get In Touch</h2>
 				<p className='text-gray-600 text-lg mb-10'>Let’s discuss how we can help your business grow internationally.</p>
 
 				<div className='flex flex-col gap-6 text-lg'>
-					<p className='flex items-center gap-2 justify-center'>
+					{/* <p className='flex items-center gap-2 justify-center'>
 						<AiOutlinePhone /> <strong>Phone:</strong> +XX XXX XXX XXX
-					</p>
-					<p className='flex items-center gap-2 justify-center'>
-						<AiOutlineGlobal /> <strong>Email:</strong> info@yourcompany.com
-					</p>
+					</p> */}
+					<Link href={`mailto:${contact.email.value}`} className='flex items-center gap-2 justify-center'>
+						<AiOutlineGlobal /> <strong>Email: {contact.email.value}</strong>
+					</Link>
 
 					<Button type='primary' size='large'>
 						Contact Us
@@ -144,9 +139,6 @@ export default function HomePage() {
 			</section>
 
 			{/* ================= FOOTER ================= */}
-			<footer className='bg-gray-900 text-gray-300 py-8 text-center text-sm'>
-				<p>© {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
-			</footer>
 		</main>
 	);
 }
